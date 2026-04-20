@@ -1,0 +1,897 @@
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Finance — Guide VISEA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1B2A;
+  --navy-mid: #1A2E42;
+  --navy-light: #253D55;
+  --gold: #C9A84C;
+  --gold-light: #E4C97E;
+  --white: #FAFAF8;
+  --text: #E8E4DC;
+  --muted: #8A96A3;
+  --accent: #4ECDC4;
+  --green: #6BCB77;
+  --red: #FF6B6B;
+  --purple: #A78BFA;
+  --border: rgba(201,168,76,0.22);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--navy); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.75; }
+a { color: inherit; text-decoration: none; }
+
+/* ── HEADER ─────────────────────────────── */
+.header { background: linear-gradient(135deg, #0D1B2A 0%, #162336 60%, #1a2e42 100%); border-bottom: 1px solid var(--border); padding: 3rem 2rem 2.5rem; position: relative; overflow: hidden; }
+.header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+.header-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.1); border: 1px solid var(--border); border-radius: 40px; padding: 5px 16px; font-size: 0.7rem; font-family: 'DM Mono', monospace; letter-spacing: 0.09em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.4rem; }
+.header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 0.9rem; }
+.header h1 em { font-style: italic; color: var(--gold); }
+.header-sub { font-size: 0.9rem; color: var(--muted); max-width: 580px; }
+.header-sub strong { color: var(--gold-light); font-weight: 500; }
+
+/* ── NAV ─────────────────────────────────── */
+.tabs-nav { background: var(--navy-mid); border-bottom: 1px solid var(--border); display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 1rem; }
+.tabs-nav::-webkit-scrollbar { display: none; }
+.tabs-nav a { color: var(--muted); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.9rem 1rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
+.tabs-nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── LAYOUT ─────────────────────────────── */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 2.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.sec-head { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 2rem; }
+.sec-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: rgba(201,168,76,0.14); line-height: 1; min-width: 52px; }
+.sec-body-head h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+.sec-body-head p { font-size: 0.83rem; color: var(--muted); }
+
+.tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 9px; border-radius: 3px; margin-bottom: 0.35rem; }
+.tag-green { background: rgba(107,203,119,0.14); color: var(--green); border: 1px solid rgba(107,203,119,0.28); }
+.tag-gold  { background: rgba(201,168,76,0.14); color: var(--gold); border: 1px solid var(--border); }
+.tag-red   { background: rgba(255,107,107,0.11); color: var(--red); border: 1px solid rgba(255,107,107,0.24); }
+
+.grid  { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.1rem; }
+.grid-2{ display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.1rem; }
+
+.card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.4rem; transition: border-color 0.2s, transform 0.2s; }
+.card:hover { border-color: var(--border); transform: translateY(-2px); }
+.card-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--white); margin-bottom: 0.55rem; }
+.card p, .card li { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+.card ul { padding-left: 1.15rem; }
+.card li { margin-bottom: 0.25rem; }
+.card strong { color: var(--text); }
+
+.formula { background: rgba(13,27,42,0.85); border: 1px solid var(--border); border-radius: 9px; padding: 1rem 1.3rem; margin: 0.9rem 0; font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--gold-light); position: relative; }
+.formula-lbl { position: absolute; top: -9px; left: 10px; background: var(--navy-mid); font-size: 0.6rem; padding: 1px 7px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 3px; }
+
+.table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); margin: 1.4rem 0; }
+table { width: 100%; border-collapse: collapse; }
+th { background: var(--navy-light); color: var(--gold); font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.8rem 1.1rem; text-align: left; border-bottom: 1px solid var(--border); }
+td { padding: 0.8rem 1.1rem; font-size: 0.83rem; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(201,168,76,0.03); color: var(--text); }
+td:first-child { color: var(--white); font-weight: 500; }
+
+.callout { border-radius: 0 8px 8px 0; padding: 1rem 1.3rem; margin: 1.2rem 0; font-size: 0.86rem; line-height: 1.65; }
+.callout-accent { background: rgba(78,205,196,0.07); border-left: 3px solid var(--accent); }
+.callout-green  { background: rgba(107,203,119,0.07); border-left: 3px solid var(--green); }
+.callout-red    { background: rgba(255,107,107,0.07); border-left: 3px solid var(--red); }
+.callout-gold   { background: rgba(201,168,76,0.07); border-left: 3px solid var(--gold); }
+.callout-purple { background: rgba(167,139,250,0.07); border-left: 3px solid var(--purple); }
+.callout strong { font-weight: 600; }
+.callout-accent strong { color: var(--accent); }
+.callout-green  strong { color: var(--green); }
+.callout-red    strong { color: var(--red); }
+.callout-gold   strong { color: var(--gold); }
+.callout-purple strong { color: var(--purple); }
+
+/* ── VISEA BOX ─────────────────────────── */
+.visea-box { background: linear-gradient(135deg, rgba(201,168,76,0.07), rgba(78,205,196,0.04)); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 12px; padding: 1.8rem; margin: 2rem 0; }
+.visea-box h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 0.8rem; }
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.9rem; margin-top: 1.1rem; }
+.meta-card { background: rgba(13,27,42,0.55); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1.1rem; }
+.meta-title { font-size: 0.68rem; font-family: 'DM Mono', monospace; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
+.meta-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+/* ── EXPLAINER DETAILS (néophyte) ────────
+   Bouton "🔍 Comprendre en détail" à l'intérieur d'une carte
+*/
+.explainer { margin-top: 1rem; }
+
+.explainer > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(167,139,250,0.1);
+  border: 1px solid rgba(167,139,250,0.28);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--purple);
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+  user-select: none;
+}
+.explainer > summary::-webkit-details-marker { display: none; }
+.explainer > summary:hover { background: rgba(167,139,250,0.18); }
+.explainer[open] > summary { background: rgba(167,139,250,0.2); }
+
+.explainer-body {
+  background: rgba(167,139,250,0.05);
+  border: 1px solid rgba(167,139,250,0.18);
+  border-radius: 10px;
+  padding: 1.2rem 1.3rem;
+  margin-top: 0.8rem;
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.explainer-body h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: var(--purple);
+  margin-bottom: 0.6rem;
+}
+.explainer-body .analogy {
+  background: rgba(167,139,250,0.1);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  font-style: italic;
+  color: var(--gold-light);
+  font-size: 0.83rem;
+}
+.explainer-body .analogy::before { content: '💡 Analogie : '; font-style: normal; color: var(--gold); font-weight: 600; }
+.explainer-body .ex-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.82rem; }
+.explainer-body .ex-table th { background: rgba(167,139,250,0.15); color: var(--purple); font-size: 0.68rem; padding: 0.5rem 0.8rem; text-align: left; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid rgba(167,139,250,0.2); }
+.explainer-body .ex-table td { padding: 0.5rem 0.8rem; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.04); }
+.explainer-body .ex-table td:first-child { color: var(--white); font-weight: 500; }
+.explainer-body .ex-table tr:last-child td { border-bottom: none; }
+.explainer-body ul { padding-left: 1.2rem; margin: 0.5rem 0; }
+.explainer-body li { margin-bottom: 0.4rem; color: var(--muted); }
+.explainer-body li strong { color: var(--text); }
+.explainer-body p { margin-bottom: 0.5rem; color: var(--muted); }
+.explainer-body p strong { color: var(--white); }
+.mono { font-family: 'DM Mono', monospace; color: var(--gold-light); font-size: 0.8rem; background: rgba(13,27,42,0.6); padding: 0.6rem 0.9rem; border-radius: 6px; display: block; margin: 0.5rem 0; }
+
+/* ── BILAN VISUEL ─────────────────────── */
+.bilan-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+}
+.bilan-col { background: rgba(13,27,42,0.8); }
+.bilan-header { padding: 0.6rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; font-weight: 500; }
+.bilan-header.actif  { background: rgba(78,205,196,0.15); color: var(--accent); }
+.bilan-header.passif { background: rgba(201,168,76,0.15); color: var(--gold); }
+.bilan-row { padding: 0.45rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; justify-content: space-between; align-items: center; }
+.bilan-row:last-child { border-bottom: none; }
+.bilan-row .lbl { color: var(--muted); }
+.bilan-row .val { font-family: 'DM Mono', monospace; color: var(--white); font-size: 0.75rem; }
+.bilan-row.subtotal { background: rgba(255,255,255,0.03); }
+.bilan-row.subtotal .lbl { color: var(--text); font-weight: 500; }
+.bilan-row.subtotal .val { color: var(--gold-light); }
+.bilan-row.total { background: rgba(201,168,76,0.08); }
+.bilan-row.total .lbl { color: var(--gold); font-weight: 600; font-size: 0.82rem; }
+.bilan-row.total .val { color: var(--gold); font-weight: 600; }
+
+/* ── QUIZ ──────────────────────────────── */
+.quiz-box { background: linear-gradient(135deg, var(--navy-mid), rgba(26,46,66,0.8)); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem; margin: 1.8rem 0; }
+.quiz-box-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--gold); margin-bottom: 1.3rem; display: flex; align-items: center; gap: 8px; }
+
+details.quiz-item { background: rgba(13,27,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; margin-bottom: 0.85rem; overflow: hidden; }
+details.quiz-item:hover { border-color: rgba(201,168,76,0.3); }
+details.quiz-item[open] { border-color: var(--gold); border-left: 3px solid var(--gold); }
+
+details.quiz-item > summary { cursor: pointer; padding: 1.1rem 1.4rem; font-size: 0.89rem; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 10px; list-style: none; user-select: none; position: relative; }
+details.quiz-item > summary::-webkit-details-marker { display: none; }
+details.quiz-item > summary::before { content: 'Q'; background: var(--gold); color: var(--navy); font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; }
+details.quiz-item > summary .arrow { margin-left: auto; color: var(--muted); font-size: 0.7rem; transition: transform 0.25s; flex-shrink: 0; }
+details.quiz-item[open] > summary .arrow { transform: rotate(180deg); }
+
+.quiz-hint { font-size: 0.72rem; font-style: italic; color: var(--muted); padding: 0 1.4rem 0.6rem 2.8rem; display: block; }
+details.quiz-item[open] .quiz-hint { display: none; }
+
+.quiz-answer { padding: 1rem 1.4rem 1.1rem 2.8rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--text); line-height: 1.7; background: rgba(78,205,196,0.04); }
+.quiz-answer strong { color: var(--accent); }
+
+/* ── GLOSSAIRE ─────────────────────────── */
+.gloss-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+.gloss { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.9rem 1.1rem; }
+.gloss-term { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--gold); font-weight: 500; margin-bottom: 0.35rem; }
+.gloss-def { font-size: 0.81rem; color: var(--muted); line-height: 1.5; }
+
+h3.sub { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); margin: 2rem 0 1rem; }
+
+footer { text-align: center; padding: 2.5rem 2rem; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
+footer strong { color: var(--gold); }
+
+@media (max-width: 580px) {
+  .sec-num { font-size: 2rem; min-width: 38px; }
+  .grid, .grid-2 { grid-template-columns: 1fr; }
+  .bilan-visual { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="wrap">
+    <div class="header-badge">◆ Préparation Entretien · VISEA Consulting · 2026</div>
+    <h1>Corporate Finance<br><em>pour ingénieurs data</em></h1>
+    <p class="header-sub">Support ciblé sur les métiers de <strong>VISEA Consulting</strong> — consolidation, normes IFRS, systèmes EPM. Chaque concept inclut une <strong style="color:var(--purple)">explication accessible pour les néophytes</strong>.</p>
+  </div>
+</div>
+
+<div class="tabs-nav">
+  <a href="#visea">🏢 VISEA</a>
+  <a href="#bases">① Bases Compta</a>
+  <a href="#consolidation">② Consolidation</a>
+  <a href="#normes">③ IFRS</a>
+  <a href="#epm">④ Systèmes EPM</a>
+  <a href="#reporting">⑤ Reporting</a>
+  <a href="#quiz">🎯 Quiz Entretien</a>
+  <a href="#glossaire">📖 Glossaire</a>
+</div>
+
+<div class="wrap">
+
+<!-- ════════════════════════════════════ -->
+<!-- 0. VISEA                             -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="visea">
+  <div class="visea-box">
+    <h2>🏢 Comprendre VISEA Consulting</h2>
+    <p style="font-size:0.86rem;color:var(--muted);">Fondé en <strong style="color:var(--white)">1990</strong>, VISEA est leader français de la consolidation financière et de l'intégration de systèmes EPM pour grandes multinationales. ~50 consultants, siège Paris 16e, clients grands groupes français &amp; allemands.</p>
+    <div class="meta-grid">
+      <div class="meta-card"><div class="meta-title">① Support Opérationnel</div><p>Assistance à la production des comptes consolidés (IFRS, USGAAP). Clôtures, pro forma, restructurations LBO, fusions/cessions.</p></div>
+      <div class="meta-card"><div class="meta-title">② Intégration EPM</div><p>Paramétrage SAP BFC/BPC, Oracle HFM/Essbase, OneStream. Spécifications fonctionnelles, conduite du changement.</p></div>
+      <div class="meta-card"><div class="meta-title">③ Support IT &amp; Hébergement</div><p>TMA, administration, migrations Oracle/HANA, hébergement SaaS des outils de consolidation et reporting.</p></div>
+      <div class="meta-card"><div class="meta-title">④ RSE &amp; Extra-Financier</div><p>Digitalisation des reportings RSE, iXBRL (taxonomies ESRS/ESEF), gouvernance des risques, KPIs ESG.</p></div>
+    </div>
+  </div>
+  <div class="callout callout-green"><strong>🎯 Ce que VISEA attend d'un ingénieur data :</strong> comprendre les concepts métier (consolidation, IFRS, reporting) pour traduire les besoins financiers en paramétrage système. La valeur ajoutée est précisément ce pont entre logique financière et logique data.</div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 1. BASES COMPTABLES                  -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="bases">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div class="sec-body-head">
+      <div class="tag tag-green">Essentiel</div>
+      <h2>Les 3 états financiers fondamentaux</h2>
+      <p>Le langage de base que tout consultant VISEA manipule. Cliquez sur <span style="color:var(--purple)">🔍 Comprendre en détail</span> pour chaque concept.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- ── BILAN ── -->
+    <div class="card">
+      <span class="card-icon">📊</span>
+      <h3>Le Bilan (Balance Sheet)</h3>
+      <p>Photographie du patrimoine de l'entreprise à une date précise.</p>
+      <div class="formula"><div class="formula-lbl">Équation fondamentale</div>Actif = Passif + Capitaux propres</div>
+      <ul>
+        <li><strong>Actif</strong> : tout ce que l'entreprise possède</li>
+        <li><strong>Passif</strong> : tout ce qu'elle doit à des tiers</li>
+        <li><strong>CP</strong> : ce qui appartient aux actionnaires</li>
+      </ul>
+
+      <details class="explainer">
+        <summary>🔍 Comprendre en détail — niveau zéro</summary>
+        <div class="explainer-body">
+          <h4>🏠 La métaphore de l'appartement</h4>
+          <div class="analogy">Imaginez que vous achetez un appartement 300 000 €. Vous avez apporté 60 000 € d'économies et emprunté 240 000 € à la banque. Votre bilan personnel, c'est exactement ça.</div>
+          <table class="ex-table">
+            <tbody><tr><th colspan="2">ACTIF (ce que vous possédez)</th><th colspan="2">PASSIF + CP (comment c'est financé)</th></tr>
+            <tr><td>Appartement</td><td style="font-family:'DM Mono',monospace;color:var(--accent)">300 000 €</td><td>Prêt immobilier (banque)</td><td style="font-family:'DM Mono',monospace;color:var(--red)">240 000 €</td></tr>
+            <tr><td></td><td></td><td>Vos économies (CP)</td><td style="font-family:'DM Mono',monospace;color:var(--green)">60 000 €</td></tr>
+            <tr><td><strong>TOTAL ACTIF</strong></td><td style="font-family:'DM Mono',monospace;color:var(--gold)"><strong>300 000 €</strong></td><td><strong>TOTAL PASSIF + CP</strong></td><td style="font-family:'DM Mono',monospace;color:var(--gold)"><strong>300 000 €</strong></td></tr>
+          </tbody></table>
+          <p>→ Les deux colonnes sont <strong>toujours égales</strong> : l'actif est forcément financé par quelqu'un (banque ou actionnaires).</p>
+
+          <h4 style="margin-top:1rem;">📋 Bilan d'une vraie entreprise (simplifié)</h4>
+          <div class="bilan-visual">
+            <div class="bilan-col">
+              <div class="bilan-header actif">ACTIF (ce que l'entreprise possède)</div>
+              <div class="bilan-row"><span class="lbl">Usines, machines (immobilisations)</span><span class="val">500 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Stocks de produits</span><span class="val">80 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Créances clients (factures non payées)</span><span class="val">120 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Trésorerie (cash en banque)</span><span class="val">50 M€</span></div>
+              <div class="bilan-row total"><span class="lbl">TOTAL ACTIF</span><span class="val">750 M€</span></div>
+            </div>
+            <div class="bilan-col">
+              <div class="bilan-header passif">PASSIF + CP (comment c'est financé)</div>
+              <div class="bilan-row"><span class="lbl">Capital + réserves (CP)</span><span class="val">300 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Résultat de l'exercice (CP)</span><span class="val">50 M€</span></div>
+              <div class="bilan-row subtotal"><span class="lbl">Sous-total Capitaux propres</span><span class="val">350 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Emprunts bancaires long terme</span><span class="val">250 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Dettes fournisseurs</span><span class="val">100 M€</span></div>
+              <div class="bilan-row"><span class="lbl">Autres dettes court terme</span><span class="val">50 M€</span></div>
+              <div class="bilan-row total"><span class="lbl">TOTAL PASSIF + CP</span><span class="val">750 M€</span></div>
+            </div>
+          </div>
+
+          <h4 style="margin-top:1rem;">🔑 Ce que ça dit en un coup d'œil</h4>
+          <ul>
+            <li><strong>Actif immobilisé élevé</strong> → entreprise industrielle avec beaucoup d'investissements physiques</li>
+            <li><strong>Créances clients élevées</strong> → elle vend à crédit, risque si clients ne paient pas</li>
+            <li><strong>Dette nette</strong> = Emprunts − Trésorerie = 250 − 50 = <strong style="color:var(--red)">200 M€</strong> d'endettement réel</li>
+            <li><strong>Gearing</strong> = 200 / 350 = 57% → levier modéré (acceptable selon les secteurs)</li>
+          </ul>
+
+          <h4 style="margin-top:1rem;">🏢 Lien avec VISEA</h4>
+          <p>Dans les outils EPM (SAP BFC, Oracle HFM), chaque ligne du bilan est un <strong>compte</strong> dans la dimension "Account". La consolidation additionne les bilans de toutes les filiales — et élimine les créances/dettes intragroupes pour éviter les doublons.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- ── COMPTE DE RÉSULTAT ── -->
+    <div class="card">
+      <span class="card-icon">📈</span>
+      <h3>Compte de Résultat (P&amp;L)</h3>
+      <p>Film de l'activité sur une période : revenus moins charges = résultat.</p>
+      <div class="formula"><div class="formula-lbl">Cascade P&amp;L</div>CA → Marge brute → EBITDA → EBIT → Résultat net</div>
+      <ul>
+        <li><strong>EBITDA</strong> : rentabilité avant investissements et impôts</li>
+        <li><strong>EBIT</strong> : après amortissements des actifs</li>
+        <li><strong>Résultat net</strong> : ce qui reste pour les actionnaires</li>
+      </ul>
+
+      <details class="explainer">
+        <summary>🔍 Comprendre en détail — niveau zéro</summary>
+        <div class="explainer-body">
+          <h4>🍕 La métaphore de la pizzeria</h4>
+          <div class="analogy">Vous tenez une pizzeria. Vous avez vendu pour 100 000 € de pizzas dans l'année. Combien avez-vous gagné réellement ? Il faut soustraire toutes les dépenses étape par étape.</div>
+
+          <table class="ex-table">
+            <tbody><tr><th>Étape</th><th>Montant</th><th>Ce que c'est</th></tr>
+            <tr><td>Chiffre d'affaires (CA)</td><td style="color:var(--green);font-family:'DM Mono',monospace">100 000 €</td><td>Toutes les ventes de pizzas</td></tr>
+            <tr><td>− Coût des ingrédients</td><td style="color:var(--red);font-family:'DM Mono',monospace">−30 000 €</td><td>Farine, tomates, fromage…</td></tr>
+            <tr><td>= <strong>Marge brute</strong></td><td style="color:var(--accent);font-family:'DM Mono',monospace">70 000 €</td><td>Ce qui reste après les matières premières</td></tr>
+            <tr><td>− Loyer, salaires, énergie</td><td style="color:var(--red);font-family:'DM Mono',monospace">−45 000 €</td><td>Charges d'exploitation courantes</td></tr>
+            <tr><td>= <strong>EBITDA</strong></td><td style="color:var(--accent);font-family:'DM Mono',monospace">25 000 €</td><td>Profit "cash" avant four/équipements</td></tr>
+            <tr><td>− Amortissement du four (D&amp;A)</td><td style="color:var(--red);font-family:'DM Mono',monospace">−5 000 €</td><td>Le four perd de la valeur chaque année</td></tr>
+            <tr><td>= <strong>EBIT</strong></td><td style="color:var(--accent);font-family:'DM Mono',monospace">20 000 €</td><td>Résultat opérationnel</td></tr>
+            <tr><td>− Intérêts sur emprunt</td><td style="color:var(--red);font-family:'DM Mono',monospace">−2 000 €</td><td>Coût du prêt pour l'équipement</td></tr>
+            <tr><td>− Impôts (IS ~25%)</td><td style="color:var(--red);font-family:'DM Mono',monospace">−4 500 €</td><td>Impôt sur les sociétés</td></tr>
+            <tr><td>= <strong>Résultat net</strong></td><td style="color:var(--green);font-family:'DM Mono',monospace"><strong>13 500 €</strong></td><td>Ce qui reste pour le propriétaire</td></tr>
+          </tbody></table>
+
+          <h4 style="margin-top:1rem;">🔑 Pourquoi l'EBITDA est si important ?</h4>
+          <p>L'EBITDA permet de <strong>comparer des entreprises indépendamment</strong> de leurs choix de financement (emprunts → intérêts) et de leurs méthodes comptables (amortissements). C'est le KPI n°1 des directions financières.</p>
+          <div class="analogy">Deux pizzerias font 25 000 € d'EBITDA. L'une a emprunté pour acheter son four, l'autre a loué. L'EBITDA les met sur un pied d'égalité — contrairement au résultat net qui serait différent.</div>
+
+          <h4 style="margin-top:1rem;">📊 Ce que ça donne à l'échelle d'un grand groupe</h4>
+          <span class="mono">CA groupe : 5 000 M€ → EBITDA : 800 M€ (marge EBITDA 16%) → EBIT : 500 M€ → Résultat net : 320 M€</span>
+          <p>La <strong>marge EBITDA</strong> (EBITDA / CA) varie selon les secteurs : ~5-8% pour la grande distribution, ~30-40% pour le luxe ou le SaaS.</p>
+
+          <h4 style="margin-top:1rem;">🏢 Lien avec VISEA</h4>
+          <p>Dans les EPM, le compte de résultat est modélisé via les <strong>comptes de charges et de produits</strong>. Les consultants VISEA paramètrent les règles de calcul de l'EBITDA et du résultat net consolidé pour que les 50 filiales d'un groupe remontent le même format.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- ── CASH FLOW ── -->
+    <div class="card">
+      <span class="card-icon">💸</span>
+      <h3>Tableau de Flux de Trésorerie</h3>
+      <p>Les mouvements réels de cash — souvent plus révélateur que le résultat comptable.</p>
+      <div class="formula"><div class="formula-lbl">Free Cash Flow</div>FCF = EBITDA − CAPEX − Δ BFR</div>
+      <ul>
+        <li><strong>Opérationnels</strong> : activité courante</li>
+        <li><strong>Investissement</strong> : CAPEX, acquisitions</li>
+        <li><strong>Financement</strong> : emprunts, dividendes</li>
+      </ul>
+
+      <details class="explainer">
+        <summary>🔍 Comprendre en détail — niveau zéro</summary>
+        <div class="explainer-body">
+          <h4>🤔 Le paradoxe : résultat positif, mais plus d'argent en banque ?</h4>
+          <div class="analogy">Vous avez facturé 100 000 € en décembre mais vos clients n'ont pas encore payé. Comptablement, vous avez un beau chiffre d'affaires. Mais votre compte en banque est vide. C'est la différence entre le résultat et le cash flow.</div>
+
+          <p>Le résultat comptable inclut des éléments <strong>non-cash</strong> :</p>
+          <ul>
+            <li><strong>Amortissements</strong> : charge comptable mais aucun décaissement réel</li>
+            <li><strong>Créances clients</strong> : CA comptabilisé mais argent pas encore reçu</li>
+            <li><strong>Stocks</strong> : achetés mais pas encore vendus</li>
+          </ul>
+
+          <h4 style="margin-top:1rem;">🔄 Les 3 sections du tableau de flux</h4>
+          <table class="ex-table">
+            <tbody><tr><th>Section</th><th>Ce qu'elle contient</th><th>Exemple</th></tr>
+            <tr><td>💼 Flux opérationnels</td><td>Cash généré par l'activité courante. Résultat + retraitements non-cash</td><td>Résultat net 320 M€ + amortissements 300 M€ − hausse des créances 50 M€ = <strong style="color:var(--green)">570 M€</strong></td></tr>
+            <tr><td>🏗️ Flux d'investissement</td><td>Achats et ventes d'actifs long terme</td><td>Achat usine −200 M€, cession filiale +80 M€ = <strong style="color:var(--red)">−120 M€</strong></td></tr>
+            <tr><td>🏦 Flux de financement</td><td>Relations avec banques et actionnaires</td><td>Emprunt +100 M€, dividendes −150 M€ = <strong style="color:var(--red)">−50 M€</strong></td></tr>
+            <tr><td colspan="2"><strong>Variation de trésorerie nette</strong></td><td style="font-family:'DM Mono',monospace;color:var(--gold)">570 − 120 − 50 = +400 M€</td></tr>
+          </tbody></table>
+
+          <h4 style="margin-top:1rem;">💡 Le Free Cash Flow (FCF) — le vrai test de santé</h4>
+          <span class="mono">FCF = Flux opérationnels − CAPEX (investissements de maintien)</span>
+          <p>C'est l'argent disponible <strong>après avoir maintenu l'outil de production</strong>, avant remboursement des dettes et dividendes. Un FCF positif régulier = entreprise financièrement solide.</p>
+
+          <h4 style="margin-top:1rem;">🏢 Lien avec VISEA</h4>
+          <p>Le tableau de flux est souvent le plus complexe à paramétrer dans les EPM — il exige de <strong>réconcilier le bilan et le P&amp;L</strong> pour recalculer automatiquement les variations. C'est un chantier classique des missions VISEA.</p>
+        </div>
+      </details>
+    </div>
+
+  </div><!-- /grid -->
+
+  <div class="callout callout-accent" style="margin-top:1.5rem;"><strong>Lien VISEA :</strong> La consolidation agrège ces 3 états pour tout le groupe. Un consultant doit savoir où chercher chaque ligne dans les outils EPM (SAP BFC, HFM…) et comprendre pourquoi une filiale peut avoir un résultat différent dans les deux systèmes.</div>
+
+  <h3 class="sub">Indicateurs clés à maîtriser</h3>
+  <div class="table-wrap">
+    <table>
+      <tbody><tr><th>Indicateur</th><th>Formule</th><th>Ce qu'il mesure</th><th>Usage VISEA</th></tr>
+      <tr><td>EBITDA</td><td>EBIT + D&amp;A</td><td>Rentabilité opérationnelle avant investissements</td><td>KPI pilotage de performance</td></tr>
+      <tr><td>BFR</td><td>Stocks + Créances − Dettes fournisseurs</td><td>Besoin en liquidités du cycle d'exploitation</td><td>Clôture, analyse trésorerie</td></tr>
+      <tr><td>Gearing</td><td>Dette nette / Capitaux propres</td><td>Niveau d'endettement relatif</td><td>Reporting bancaire, LBO</td></tr>
+      <tr><td>ROCE</td><td>EBIT / Capital employé</td><td>Efficacité du capital investi</td><td>Pilotage groupe, reporting DG</td></tr>
+      <tr><td>DSO</td><td>(Créances / CA) × 365</td><td>Délai moyen de recouvrement client</td><td>KPI opérationnel, management reporting</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 2. CONSOLIDATION                     -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="consolidation">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div class="sec-body-head">
+      <div class="tag tag-green">Essentiel — Cœur de métier VISEA</div>
+      <h2>Consolidation des comptes</h2>
+      <p>Agréger les états financiers d'un groupe comme une seule entité économique</p>
+    </div>
+  </div>
+
+  <div class="callout callout-accent"><strong>Définition :</strong> La consolidation présente les comptes d'un ensemble d'entités juridiques distinctes (maison-mère + filiales) comme s'il s'agissait d'une seule entreprise.</div>
+
+  <h3 class="sub">Les 3 méthodes de consolidation selon le contrôle</h3>
+  <div class="grid">
+    <div class="card">
+      <span class="card-icon">🔵</span>
+      <h3>Intégration globale</h3>
+      <p><strong style="color:var(--gold)">Contrôle exclusif</strong> — &gt;50% des droits de vote</p>
+      <ul style="margin-top:0.7rem;">
+        <li>100% des actifs/passifs/produits/charges intégrés</li>
+        <li>Part des minoritaires (NCI) isolée dans les CP</li>
+        <li>Exemple : filiale détenue à 80%</li>
+      </ul>
+      <details class="explainer">
+        <summary>🔍 Comprendre en détail</summary>
+        <div class="explainer-body">
+          <div class="analogy">Total SA possède 80% d'une filiale pétrolière. Dans les comptes du groupe, on intègre 100% du chiffre d'affaires et des actifs de la filiale. Mais on isole les 20% qui appartiennent à d'autres actionnaires (NCI = Non-Controlling Interests) dans les capitaux propres.</div>
+          <p>Pourquoi 100% et pas 80% ? Parce que Total <strong>contrôle</strong> la filiale — elle prend toutes les décisions. Les 20% minoritaires sont des passagers, pas des pilotes.</p>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="card-icon">🟡</span>
+      <h3>Mise en équivalence</h3>
+      <p><strong style="color:var(--gold)">Influence notable</strong> — entre 20% et 50%</p>
+      <ul style="margin-top:0.7rem;">
+        <li>Pas d'intégration ligne à ligne</li>
+        <li>Quote-part du résultat et des CP seulement</li>
+        <li>Exemple : participation à 35% dans une JV</li>
+      </ul>
+      <details class="explainer">
+        <summary>🔍 Comprendre en détail</summary>
+        <div class="explainer-body">
+          <div class="analogy">Renault détient 35% de Nissan. Renault n'intègre pas le CA de Nissan dans le sien (ce n'est pas sa filiale). En revanche, si Nissan fait 1 000 M€ de bénéfice, Renault comptabilise 350 M€ (35%) comme produit financier "quote-part des sociétés mises en équivalence".</div>
+          <p>Au bilan, la participation apparaît pour sa valeur réévaluée chaque année selon les résultats de Nissan.</p>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="card-icon">🟠</span>
+      <h3>Intégration proportionnelle</h3>
+      <p><strong style="color:var(--gold)">Contrôle conjoint</strong> — limité sous IFRS 11</p>
+      <ul style="margin-top:0.7rem;">
+        <li>Quote-part proportionnelle actifs/passifs</li>
+        <li>Encore en French GAAP pour joint-operations</li>
+        <li>Exemple : co-entreprise 50/50</li>
+      </ul>
+      <details class="explainer">
+        <summary>🔍 Comprendre en détail</summary>
+        <div class="explainer-body">
+          <div class="analogy">Deux constructeurs automobiles créent ensemble une usine commune 50/50. Chacun intègre 50% des actifs, dettes, produits et charges de l'usine dans ses propres comptes. Ni l'un ni l'autre ne contrôle seul — ils gouvernent ensemble.</div>
+          <p>Important : sous IFRS 11, cette méthode est très limitée. La plupart des joint-ventures sont désormais traitées en mise en équivalence en IFRS.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <h3 class="sub">Les 5 retraitements fondamentaux</h3>
+  <div class="table-wrap">
+    <table>
+      <tbody><tr><th>Retraitement</th><th>Pourquoi ?</th><th>Comment ?</th></tr>
+      <tr><td>Élimination des flux intragroupes</td><td>Éviter la double comptabilisation</td><td>Annulation créances/dettes et produits/charges réciproques</td></tr>
+      <tr><td>Élimination des dividendes internes</td><td>Dividendes intra = flux fictif au niveau groupe</td><td>Annulation en produit financier + impact CP</td></tr>
+      <tr><td>Homogénéisation des méthodes</td><td>Aligner toutes entités sur les mêmes principes</td><td>Même amortissement, même valorisation des stocks</td></tr>
+      <tr><td>Conversion des devises</td><td>Filiales étrangères → monnaie de consolidation</td><td>Bilan au cours de clôture, P&amp;L au cours moyen, écart en OCI</td></tr>
+      <tr><td>Goodwill (écart d'acquisition)</td><td>Prix payé &gt; juste valeur des actifs nets</td><td>Actif immobilisé, non amorti, impairment test annuel</td></tr>
+    </tbody></table>
+  </div>
+
+  <details class="explainer" style="margin-top:0.5rem;">
+    <summary>🔍 Comprendre les retraitements — exemples concrets</summary>
+    <div class="explainer-body">
+      <h4>① Pourquoi éliminer les flux intragroupes ?</h4>
+      <div class="analogy">La maison-mère vend 100 M€ de services à sa filiale. La mère comptabilise +100 M€ de CA, la filiale −100 M€ de charges. Résultat : au niveau groupe, on additionne 100 + 0 = 100 M€ de CA fictif. Sans élimination, le groupe "se vend à lui-même" et grossit artificiellement son chiffre d'affaires.</div>
+      <p>→ On annule les 100 M€ de CA de la mère ET les 100 M€ de charges de la filiale. Net = 0 pour le groupe.</p>
+
+      <h4 style="margin-top:1rem;">② La conversion des devises (IAS 21)</h4>
+      <div class="analogy">Une filiale américaine a un bilan en dollars. Au moment de consolider, on convertit en euros. Le taux de change a évolué depuis la date d'acquisition. La différence de conversion ne va pas dans le résultat (ce serait trop volatile) mais dans les capitaux propres, dans un compte appelé OCI (Other Comprehensive Income).</div>
+
+      <h4 style="margin-top:1rem;">③ Le Goodwill — la prime d'acquisition</h4>
+      <div class="analogy">LVMH rachète une maison de luxe pour 2 000 M€. La valeur comptable de ses actifs nets est de 1 200 M€. L'excédent de 800 M€ est le goodwill — la valeur de la marque, du savoir-faire, de la clientèle fidèle. LVMH l'inscrit à son actif et vérifie chaque année qu'il vaut toujours au moins 800 M€ (test d'impairment).</div>
+    </div>
+  </details>
+
+  <div class="callout callout-red" style="margin-top:1rem;"><strong>⚠️ Point critique entretien :</strong> Savoir expliquer le principe d'élimination des flux intragroupes est la question-test classique chez VISEA.</div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 3. NORMES IFRS                       -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="normes">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div class="sec-body-head">
+      <div class="tag tag-gold">Important</div>
+      <h2>Normes IFRS essentielles</h2>
+      <p>Les standards que VISEA applique chez ses clients multinationales cotées</p>
+    </div>
+  </div>
+
+  <div class="callout callout-accent"><strong>IFRS</strong> (International Financial Reporting Standards) = référentiel comptable international obligatoire pour les sociétés cotées en Europe. S'oppose au French GAAP (Plan Comptable Général) et au US GAAP.</div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="card-icon">📋</span>
+      <h3>IFRS 3 — Regroupements d'entreprises</h3>
+      <ul>
+        <li>Méthode de l'acquisition obligatoire</li>
+        <li>Comptabilisation du <strong>Goodwill</strong></li>
+        <li>Test d'impairment annuel (IAS 36)</li>
+        <li style="color:var(--gold-light)">⭐ Clé pour les missions M&amp;A chez VISEA</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏢</span>
+      <h3>IFRS 16 — Contrats de location</h3>
+      <ul>
+        <li>Baux &gt;12 mois → actif ROU + dette au bilan</li>
+        <li>EBITDA ↑ mécaniquement (loyer sort de l'EBITDA)</li>
+        <li>Endettement visible au bilan ↑</li>
+        <li style="color:var(--gold-light)">⭐ Paramétrage spécifique SAP/Oracle chez VISEA</li>
+      </ul>
+      <details class="explainer">
+        <summary>🔍 Comprendre IFRS 16</summary>
+        <div class="explainer-body">
+          <h4>Avant / Après IFRS 16</h4>
+          <div class="analogy">Air France loue ses avions. Avant 2019 : ces loyers étaient une simple charge, invisibles au bilan. Depuis IFRS 16 : chaque avion loué crée un "actif droit d'utilisation" et une "dette de loyer". Le bilan d'Air France grossit de milliards d'euros — mais rien n'a changé dans la réalité économique !</div>
+          <table class="ex-table">
+            <tbody><tr><th></th><th>Avant IFRS 16</th><th>Après IFRS 16</th></tr>
+            <tr><td>Bilan</td><td>Pas d'actif ni de dette de location</td><td>Actif ROU + Dette de loyer apparaissent</td></tr>
+            <tr><td>EBITDA</td><td>Loyer vient en déduction de l'EBITDA</td><td>Loyer sort de l'EBITDA → EBITDA augmente</td></tr>
+            <tr><td>P&amp;L</td><td>Loyer = charge opérationnelle</td><td>Amortissement ROU + intérêts sur dette</td></tr>
+          </tbody></table>
+          <p>→ Attention aux comparaisons d'EBITDA avant/après 2019 pour les sociétés à fort recours à la location (aviation, retail, hôtellerie).</p>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="card-icon">📦</span>
+      <h3>IFRS 15 — Produits des contrats clients</h3>
+      <ul>
+        <li>Reconnaissance du revenu en 5 étapes</li>
+        <li>Quand l'obligation de performance est satisfaite</li>
+        <li>Impact timing : SaaS, contrats long terme</li>
+      </ul>
+      <details class="explainer">
+        <summary>🔍 Comprendre IFRS 15</summary>
+        <div class="explainer-body">
+          <div class="analogy">Un éditeur de logiciel signe un contrat SaaS de 1 200 €/an payé d'avance en janvier. Peut-il tout comptabiliser en CA en janvier ? Non. Il doit étaler : 100 €/mois car il rend un service chaque mois. C'est le principe de la reconnaissance du revenu "quand la prestation est rendue".</div>
+          <p>Autre exemple : un constructeur aéronautique livre un avion en 3 ans. Il peut reconnaître le CA au fur et à mesure de l'avancement des travaux (méthode à l'avancement) — si les conditions IFRS 15 sont remplies.</p>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔧</span>
+      <h3>IAS 36 — Dépréciation d'actifs</h3>
+      <ul>
+        <li>Test de dépréciation du Goodwill et autres actifs</li>
+        <li>UGT = Unité Génératrice de Trésorerie</li>
+        <li>Valeur recouvrable = max(valeur d'utilité, juste valeur)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌍</span>
+      <h3>IAS 21 — Cours des monnaies</h3>
+      <ul>
+        <li>Monnaie fonctionnelle vs monnaie de présentation</li>
+        <li>Conversion des filiales étrangères</li>
+        <li>Écart de conversion → OCI (pas en résultat)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌱</span>
+      <h3>CSRD / ESRS — Extra-Financier</h3>
+      <ul>
+        <li>Directive européenne obligatoire depuis 2024</li>
+        <li>Double matérialité (impact ET risques financiers)</li>
+        <li style="color:var(--gold-light)">⭐ Nouveau marché majeur pour VISEA (iXBRL/ESRS)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:1.5rem;"><strong>💡 Astuce entretien :</strong> Mentionner IFRS 16 montre une connaissance concrète et récente, particulièrement appréciée chez VISEA qui paramètre ces calculs dans SAP et Oracle.</div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 4. SYSTÈMES EPM                      -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="epm">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div class="sec-body-head">
+      <div class="tag tag-green">Essentiel — Compétence Technique VISEA</div>
+      <h2>Systèmes EPM</h2>
+      <p>Enterprise Performance Management : les outils que VISEA implémente chez ses clients</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tbody><tr><th>Outil</th><th>Éditeur</th><th>Usage principal</th><th>Techno</th></tr>
+      <tr><td>SAP BFC (ex-Cartesis)</td><td>SAP</td><td>Consolidation statutaire &amp; reporting groupe</td><td>Java/Web, SQL Server / Oracle</td></tr>
+      <tr><td>SAP BPC</td><td>SAP</td><td>Consolidation + Budget + Planning</td><td>SAP HANA, ABAP</td></tr>
+      <tr><td>Oracle HFM</td><td>Oracle</td><td>Consolidation statutaire multidevises</td><td>Oracle DB, VBScript/Groovy</td></tr>
+      <tr><td>Oracle Essbase</td><td>Oracle</td><td>Bases OLAP multidimensionnelles</td><td>MDX, calcul en mémoire</td></tr>
+      <tr><td>Oracle PBCS/EPBCS</td><td>Oracle</td><td>Planning et budgétisation SaaS</td><td>Cloud Oracle, Groovy</td></tr>
+      <tr><td>OneStream</td><td>OneStream</td><td>CPM unifié : consolidation + planning</td><td>Plateforme unifiée extensible</td></tr>
+      <tr><td>SAP Analytics Cloud (SAC)</td><td>SAP</td><td>BI &amp; planning SaaS, visualisation</td><td>SaaS, connecteurs SAP</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="callout callout-gold"><strong>🔑 Pont Data / Finance :</strong> Pour un ingénieur data, ces outils sont des cubes OLAP multidimensionnels avec des axes (entités, comptes, périodes, devises, scénarios). La logique est proche d'un data warehouse dimensionnel — c'est précisément votre atout pour VISEA&nbsp;!</div>
+
+  <h3 class="sub">Architecture d'un cube de consolidation</h3>
+  <div class="grid-2">
+    <div class="card">
+      <span class="card-icon">🏗️</span>
+      <h3>Les 7 dimensions typiques</h3>
+      <ul>
+        <li><strong>Entity</strong> — hiérarchie des entités du groupe</li>
+        <li><strong>Account</strong> — plan de comptes consolidé</li>
+        <li><strong>Period</strong> — mois, trimestre, année</li>
+        <li><strong>Currency</strong> — locale, reporting, groupe</li>
+        <li><strong>Scenario</strong> — réel, budget, forecast, plan</li>
+        <li><strong>ICP</strong> — Intercompany Partner (flux intragroupes)</li>
+        <li><strong>DataSource</strong> — phase de collecte des données</li>
+      </ul>
+      <details class="explainer">
+        <summary>🔍 Le parallèle avec un data warehouse</summary>
+        <div class="explainer-body">
+          <div class="analogy">Un cube EPM = un data warehouse multidimensionnel financier. La dimension "Account" = la table de faits. Les dimensions Entity, Period, Currency = les tables de dimensions. La requête "CA France en USD au Budget 2025" = une tranche de cube (slice and dice).</div>
+          <p>La différence avec un DWH classique : le cube EPM embarque aussi des <strong>règles métier financières</strong> (calcul du résultat, conversions de devises, éliminations intragroupes) directement dans la base. C'est là qu'intervient le consultant VISEA pour paramétrer ces règles.</p>
+          <table class="ex-table">
+            <tbody><tr><th>Data Warehouse</th><th>Cube EPM (HFM/BPC)</th></tr>
+            <tr><td>Table de faits</td><td>Données financières (Account)</td></tr>
+            <tr><td>Tables de dimensions</td><td>Entity, Period, Currency, Scenario</td></tr>
+            <tr><td>ETL</td><td>Interfaces d'alimentation depuis ERP</td></tr>
+            <tr><td>Calculs SQL/Spark</td><td>Règles de consolidation (VBScript, Groovy)</td></tr>
+            <tr><td>Dashboard BI</td><td>Reporting consolidé pour le DAF</td></tr>
+          </tbody></table>
+        </div>
+      </details>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔄</span>
+      <h3>Processus de clôture consolidée</h3>
+      <ul>
+        <li>Collecte des liasses filiales</li>
+        <li>Contrôle &amp; validation des données</li>
+        <li>Retraitements IFRS locaux</li>
+        <li>Éliminations intragroupes</li>
+        <li>Réconciliation ICP</li>
+        <li>Calcul de la consolidation</li>
+        <li>Production des états financiers groupe</li>
+        <li>Reporting actionnaires / régulateurs</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 5. REPORTING                         -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="reporting">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div class="sec-body-head">
+      <div class="tag tag-gold">Important</div>
+      <h2>Reporting financier &amp; pilotage</h2>
+      <p>Les 5 types de reporting et leur contexte réglementaire</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tbody><tr><th>Type</th><th>Destinataire</th><th>Norme</th><th>Fréquence</th><th>Outil typique</th></tr>
+      <tr><td>Consolidation statutaire</td><td>Actionnaires, AMF</td><td>IFRS / French GAAP</td><td>Semestriel, annuel</td><td>SAP BFC, HFM</td></tr>
+      <tr><td>Management reporting</td><td>Direction, COMEX</td><td>Normes internes</td><td>Mensuel</td><td>BPC, OneStream, SAC</td></tr>
+      <tr><td>Budget / Forecast</td><td>DG, directions métier</td><td>Normes internes</td><td>Annuel / rolling</td><td>BPC, Oracle Planning</td></tr>
+      <tr><td>Réglementaire ESEF/XBRL</td><td>AMF, ESMA</td><td>ESEF (iXBRL)</td><td>Annuel</td><td>Outils Disclosure Management</td></tr>
+      <tr><td>Extra-financier RSE</td><td>Régulateurs, investisseurs ESG</td><td>CSRD / ESRS</td><td>Annuel</td><td>Outils RSE dédiés</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="grid-2" style="margin-top:1.5rem;">
+    <div class="card">
+      <span class="card-icon">🏷️</span>
+      <h3>ESEF / iXBRL</h3>
+      <p><strong>European Single Electronic Format</strong> — depuis 2020, les sociétés cotées publient leurs rapports en iXBRL : le document contient des balises XML permettant la lecture automatisée par les régulateurs et investisseurs.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌿</span>
+      <h3>CSRD &amp; Double Matérialité</h3>
+      <p><strong>Corporate Sustainability Reporting Directive</strong> — déployée 2024–2026.</p>
+      <ul style="margin-top:0.5rem;">
+        <li><strong>Matérialité d'impact</strong> : comment l'entreprise affecte l'environnement</li>
+        <li><strong>Matérialité financière</strong> : comment les risques ESG impactent la valeur</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 6. QUIZ                              -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="quiz">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <div class="sec-body-head">
+      <div class="tag tag-red">Quiz — Simulation Entretien</div>
+      <h2>Questions types pour l'entretien VISEA</h2>
+      <p>Cliquez sur chaque question pour révéler la réponse attendue</p>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="quiz-box-title">💼 Finance d'entreprise</div>
+
+    <details class="quiz-item">
+      <summary>Quelle est la différence entre le résultat net et le cash flow ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">Le résultat net est une notion <strong>comptable</strong> incluant des charges non-cash (amortissements, provisions). Le cash flow représente les <strong>mouvements réels de liquidités</strong>. On peut avoir un résultat net positif mais un cash flow négatif — ex. forte croissance avec beaucoup de créances clients non encore encaissées. Le tableau de flux est souvent plus révélateur de la santé financière réelle.</div>
+    </details>
+
+    <details class="quiz-item">
+      <summary>Qu'est-ce que la consolidation et pourquoi est-elle nécessaire ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">La consolidation agrège les états financiers de toutes les entités d'un groupe pour présenter une <strong>vision unique</strong>, comme s'il s'agissait d'une seule entreprise. Nécessaire pour donner aux investisseurs une image fidèle — sans distorsion liée aux flux internes. Sans consolidation, un groupe pourrait afficher un CA fictif en se vendant des prestations à lui-même.</div>
+    </details>
+
+    <details class="quiz-item">
+      <summary>Expliquez l'impact d'IFRS 16 sur les états financiers. <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">Avant IFRS 16, les contrats de location opérationnels ne figuraient pas au bilan. Depuis 2019, tous les baux &gt;12 mois génèrent : 1) un <strong>actif «&nbsp;droit d'utilisation&nbsp;»</strong> (ROU), 2) une <strong>dette de location</strong>. Au P&amp;L, le loyer est remplacé par amortissements + intérêts. Conséquence : l'<strong>EBITDA augmente mécaniquement</strong> et l'endettement bilan augmente. Point de vigilance pour les acquisitions et comparaisons sectorielles.</div>
+    </details>
+
+    <details class="quiz-item">
+      <summary>Qu'est-ce qu'un goodwill et comment est-il traité en IFRS ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">Goodwill = différence entre le <strong>prix payé</strong> pour acquérir une entreprise et la <strong>juste valeur de ses actifs nets identifiables</strong>. En IFRS (IFRS 3 + IAS 36) : comptabilisé à l'actif du bilan consolidé, <strong>non amorti</strong>, mais soumis chaque année à un <strong>test de dépréciation</strong> par UGT. Si la valeur recouvrable est inférieure à la valeur comptable, dépréciation irréversible en résultat.</div>
+    </details>
+
+    <details class="quiz-item">
+      <summary>Pourquoi élimine-t-on les transactions intragroupes en consolidation ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">Pour éviter la <strong>double comptabilisation</strong> : si la mère vend 1 M€ à sa filiale, ce CA est réel pour la mère mais constitue une charge pour la filiale. Au niveau groupe (vision unique), cette transaction est interne et n'a pas créé de valeur externe. On élimine le CA de la mère ET la charge de la filiale pour ne garder que les flux avec les <strong>tiers extérieurs au groupe</strong>.</div>
+    </details>
+  </div>
+
+  <div class="quiz-box">
+    <div class="quiz-box-title">💻 Systèmes &amp; Profil Data</div>
+
+    <details class="quiz-item">
+      <summary>Comment votre profil ingénieur data vous aide-t-il dans un projet EPM (SAP BPC, Oracle HFM) ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">Un ingénieur data comprend naturellement la <strong>modélisation multidimensionnelle OLAP</strong>, les flux ETL d'alimentation, et les enjeux de qualité de données. Dans SAP BPC ou HFM : conception des hiérarchies de dimensions, optimisation des interfaces depuis les ERP (SAP FI, Oracle), diagnostic des réconciliations. La <strong>valeur ajoutée clé</strong> = faire le pont entre les directeurs financiers et l'outil technique — précisément ce que VISEA recherche.</div>
+    </details>
+
+    <details class="quiz-item">
+      <summary>Qu'est-ce que l'iXBRL et pourquoi est-ce stratégique pour VISEA ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">iXBRL intègre des <strong>balises de données structurées</strong> dans un document HTML lisible. Dans le cadre de l'ESEF européen, les sociétés cotées publient leurs états consolidés avec balises iXBRL selon la taxonomie IFRS. L'intérêt : <strong>lecture automatisée</strong> par régulateurs (ESMA) et investisseurs. Pour VISEA, c'est un marché en forte croissance — opportunité directe pour un profil data/tech capable de construire et valider les taxonomies.</div>
+    </details>
+
+    <details class="quiz-item">
+      <summary>Qu'est-ce que la double matérialité dans le contexte CSRD ? <span class="arrow">▾</span></summary>
+      <span class="quiz-hint">▸ Cliquez pour révéler la réponse</span>
+      <div class="quiz-answer">Deux analyses distinctes : 1) <strong>Matérialité d'impact</strong> (outside-in) : comment les activités de l'entreprise impactent l'environnement et la société. 2) <strong>Matérialité financière</strong> (inside-out) : comment les risques ESG affectent la performance financière. Une information est matérielle si elle est significative dans au moins une des deux dimensions.</div>
+    </details>
+  </div>
+
+  <div class="callout callout-green"><strong>💡 Conseil stratégique :</strong> Montrez que vous comprenez le <em>problème métier</em> avant l'outil. VISEA cherche quelqu'un qui peut dialoguer avec le DAF autant qu'avec un développeur — et c'est exactement ce pont que votre profil data permet.</div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- 7. GLOSSAIRE                         -->
+<!-- ════════════════════════════════════ -->
+<div class="section" id="glossaire">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <div class="sec-body-head">
+      <div class="tag tag-gold">Référence Rapide</div>
+      <h2>Glossaire Corporate Finance × VISEA</h2>
+      <p>Les termes à maîtriser absolument pour l'entretien</p>
+    </div>
+  </div>
+
+  <div class="gloss-grid">
+    <div class="gloss"><div class="gloss-term">Consolidation statutaire</div><div class="gloss-def">Comptes annuels/semestriels consolidés selon IFRS ou French GAAP, obligatoires pour les sociétés cotées et grands groupes.</div></div>
+    <div class="gloss"><div class="gloss-term">EPM (Enterprise Performance Management)</div><div class="gloss-def">Famille de logiciels couvrant consolidation, budgétisation, reporting et analyse. Ex : SAP BPC, Oracle HFM, OneStream.</div></div>
+    <div class="gloss"><div class="gloss-term">OLAP / Cube multidimensionnel</div><div class="gloss-def">Structure de données permettant l'analyse selon plusieurs axes simultanés (entité, temps, devise, scénario). Cœur technique des EPM.</div></div>
+    <div class="gloss"><div class="gloss-term">Périmètre de consolidation</div><div class="gloss-def">Ensemble des entités incluses dans le groupe consolidé. Varie selon les cessions/acquisitions (entrée/sortie de périmètre).</div></div>
+    <div class="gloss"><div class="gloss-term">Goodwill (écart d'acquisition)</div><div class="gloss-def">Surplus payé lors d'une acquisition au-delà de la juste valeur des actifs nets. Comptabilisé à l'actif, testé annuellement.</div></div>
+    <div class="gloss"><div class="gloss-term">NCI / Intérêts minoritaires</div><div class="gloss-def">Non-Controlling Interests : part des capitaux propres d'une filiale appartenant aux actionnaires minoritaires hors groupe.</div></div>
+    <div class="gloss"><div class="gloss-term">ICP / Intercompany</div><div class="gloss-def">Transactions entre entités du même groupe. Doivent être réconciliées et éliminées en consolidation.</div></div>
+    <div class="gloss"><div class="gloss-term">Liasse de consolidation</div><div class="gloss-def">Package de données financières envoyé par chaque filiale au groupe pour alimenter la consolidation. Standardisé par le groupe.</div></div>
+    <div class="gloss"><div class="gloss-term">OCI (Other Comprehensive Income)</div><div class="gloss-def">Éléments de capitaux propres ne passant pas par le compte de résultat : écarts de conversion, gains actuariels, réévaluation.</div></div>
+    <div class="gloss"><div class="gloss-term">CAPEX vs OPEX</div><div class="gloss-def">CAPEX : investissements capitalisés (actif). OPEX : charges opérationnelles. Distinction critique pour le traitement comptable.</div></div>
+    <div class="gloss"><div class="gloss-term">Pro forma</div><div class="gloss-def">États financiers ajustés comme si une acquisition/cession avait eu lieu dès le début de la période présentée.</div></div>
+    <div class="gloss"><div class="gloss-term">AMOA / MOE</div><div class="gloss-def">Assistance Maîtrise d'Ouvrage (côté client, fonctionnel) vs Maîtrise d'Œuvre (réalisation technique). VISEA intervient sur les deux.</div></div>
+    <div class="gloss"><div class="gloss-term">Rolling Forecast</div><div class="gloss-def">Prévision glissante toujours à horizon fixe (ex : 12 mois), remplaçant le budget annuel figé.</div></div>
+    <div class="gloss"><div class="gloss-term">Disclosure Management (DM)</div><div class="gloss-def">Outils de production du rapport annuel avec intégration des données financières et marquage iXBRL réglementaire.</div></div>
+    <div class="gloss"><div class="gloss-term">UGT (Unité Génératrice de Trésorerie)</div><div class="gloss-def">Plus petit groupe d'actifs générant des flux indépendants. Niveau d'analyse pour les tests d'impairment (IAS 36).</div></div>
+    <div class="gloss"><div class="gloss-term">ESEF / iXBRL</div><div class="gloss-def">European Single Electronic Format : obligation de publier les rapports financiers annuels en iXBRL selon la taxonomie IFRS.</div></div>
+    <div class="gloss"><div class="gloss-term">CSRD / ESRS</div><div class="gloss-def">Corporate Sustainability Reporting Directive avec standards ESRS : reporting extra-financier obligatoire en double matérialité.</div></div>
+    <div class="gloss"><div class="gloss-term">TMA (Tierce Maintenance Applicative)</div><div class="gloss-def">Maintenance d'une application après déploiement : corrections, mises à jour, support utilisateurs. Chez VISEA : maintenance EPM.</div></div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>Support préparé pour <strong>VISEA Consulting — 1er entretien</strong> · Corporate Finance pour ingénieurs data</p>
+  <p style="margin-top:0.4rem;font-size:0.72rem;">Sources : viseaconsulting.com · IASB (IFRS Foundation) · ESMA · EFRAG (ESRS) · 2026</p>
+</footer>
+
+
+<!-- ══ BARRE DE TÉLÉCHARGEMENT ══ -->
+<div id="dl-bar" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; background: rgb(201, 168, 76); color: rgb(13, 27, 42); border-radius: 50px; padding: 12px 22px; font-family: &quot;DM Sans&quot;, sans-serif; font-size: 0.85rem; font-weight: 600; box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onclick="downloadPage()">
+  ⬇ Télécharger ce guide (HTML)
+</div>
+<script>
+function downloadPage() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], {type: 'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'visea_corporate_finance_guide.html';
+  a.click();
+}
+</script>
+
+
+
+</body></html>
